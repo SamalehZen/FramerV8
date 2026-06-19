@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Fonts — self-hosted, exact files used by the original Framer site
+   Open Sauce One  → display / headings  (Medium 500, SemiBold 600)
+   Open Sauce Two  → body / UI            (Medium 500, Bold 700)
+   ============================================================ */
+@font-face {
+  font-family: 'Open Sauce One';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/OpenSauceOne-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Open Sauce One';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/OpenSauceOne-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Open Sauce Two';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/OpenSauceTwo-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Open Sauce Two';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/OpenSauceTwo-Bold.woff2') format('woff2');
+}
+
+@layer base {
+  :root {
+    --container: 1200px;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface font-sans text-ink antialiased;
+    font-weight: 500;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #1e365d;
+    color: #fff;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  /* Centered content container matching the Framer 1200px content width */
+  .container-px {
+    @apply mx-auto w-full max-w-[1248px] px-6 md:px-8 lg:px-10;
+  }
+
+  /* Section eyebrow label: ■ LABEL */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-sans text-[13px] font-bold uppercase tracking-[0.12em] text-ink;
+  }
+
+  /* Pill button base */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill font-sans text-[15px] font-medium
+           transition-all duration-300 ease-framer will-change-transform;
+  }
+  .btn-navy {
+    @apply btn bg-navy text-white shadow-navy hover:bg-navy-700;
+  }
+  .btn-light {
+    @apply btn bg-white text-ink hover:bg-white/90;
+  }
+  .btn-ghost-light {
+    @apply btn bg-white/10 text-white ring-1 ring-inset ring-white/25 backdrop-blur-md hover:bg-white/20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .marquee-track {
+    animation: marquee 30s linear infinite;
+  }
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+}
