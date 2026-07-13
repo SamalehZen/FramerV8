@@ -5,10 +5,38 @@ import { Eyebrow } from '../ui/Eyebrow'
 import { fadeUp, useReveal, ease } from '../../lib/anim'
 import { clsx } from '../../lib/clsx'
 
+import { useRef } from 'react'
+
 export function FAQ() {
   const [open, setOpen] = useState(2) // "Do you support investors?" open by default (matches screenshot)
   const left = useReveal()
   const list = useReveal()
+  const triggerRefs = useRef<(HTMLButtonElement | null)[]>([])
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    const total = faq.items.length
+    let nextIndex = index
+
+    switch (e.key) {
+      case 'ArrowDown':
+        nextIndex = (index + 1) % total
+        break
+      case 'ArrowUp':
+        nextIndex = (index - 1 + total) % total
+        break
+      case 'Home':
+        nextIndex = 0
+        break
+      case 'End':
+        nextIndex = total - 1
+        break
+      default:
+        return
+    }
+
+    e.preventDefault()
+    triggerRefs.current[nextIndex]?.focus()
+  }
 
   return (
     <section className="bg-surface py-20 lg:py-24">
@@ -38,6 +66,9 @@ export function FAQ() {
         >
           {faq.items.map((item, i) => {
             const isOpen = i === open
+            const buttonId = `faq-btn-${i}`
+            const panelId = `faq-panel-${i}`
+
             return (
               <div
                 key={item.q}
@@ -47,9 +78,16 @@ export function FAQ() {
                 )}
               >
                 <button
+                  id={buttonId}
+                  ref={(el) => {
+                    triggerRefs.current[i] = el
+                  }}
                   type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  onKeyDown={(e) => handleKeyDown(e, i)}
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 rounded-lg"
                 >
                   <span className="font-display text-[20px] font-semibold text-ink">{item.q}</span>
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-navy">
@@ -61,6 +99,9 @@ export function FAQ() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={buttonId}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

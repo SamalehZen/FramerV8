@@ -1,0 +1,3 @@
+## 2026-07-13 - [WAI-ARIA compliance & Keyboard Navigation for Accordions]
+**Learning:** Adding robust ARIA attribute mappings (such as linking buttons to their panel regions via `aria-controls` / `aria-labelledby` and maintaining `aria-expanded` states) combined with semantic arrow key event listeners (`ArrowUp`/`ArrowDown`/`Home`/`End`) drastically boosts screen reader and keyboard accessibility with negligible visual footprint, creating an invisible, yet extremely delightful user experience.
+**Action:** Always map accordion items and disclosures to proper unique IDs, manage focused element references using a ref array, and implement natural keyboard navigation handlers to facilitate fluent web page exploration for all power users and screen reader users alike.
