@@ -1,0 +1,3 @@
+## 2025-02-14 - ARIA and Keyboard Navigation Accessibility Patterns
+**Learning:** Custom interactive elements such as accordions and carousels require explicit ARIA role attributes and keyboard focus-visible indicator states (focus ring, focus-visible:outline-none) to support keyboard users and assistive technologies, preventing trapped keyboard interactions and invisible selection focus.
+**Action:** Always add WAI-ARIA roles (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) and Tailwind's `focus-visible:ring-2` class to interactive buttons/toggle controls in accordions and slider paginations.
