@@ -10,6 +10,34 @@ export function FAQ() {
   const left = useReveal()
   const list = useReveal()
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    const parent = e.currentTarget.closest('[data-faq-list]')
+    if (!parent) return
+    const buttons = Array.from(parent.querySelectorAll('button[aria-expanded]')) as HTMLButtonElement[]
+    const maxIndex = buttons.length - 1
+
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault()
+        buttons[(index + 1) % buttons.length].focus()
+        break
+      case 'ArrowUp':
+        e.preventDefault()
+        buttons[(index - 1 + buttons.length) % buttons.length].focus()
+        break
+      case 'Home':
+        e.preventDefault()
+        buttons[0].focus()
+        break
+      case 'End':
+        e.preventDefault()
+        buttons[maxIndex].focus()
+        break
+      default:
+        break
+    }
+  }
+
   return (
     <section className="bg-surface py-20 lg:py-24">
       <div className="container-px grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
@@ -22,7 +50,7 @@ export function FAQ() {
           <p className="mt-6 max-w-[420px] font-sans text-[18px] leading-[1.5] text-body">{faq.subtitle}</p>
           <a
             href={faq.cta.href}
-            className="mt-9 inline-flex h-[52px] items-center justify-center rounded-pill bg-navy px-9 font-sans text-[16px] font-medium text-white shadow-navy transition-all duration-300 ease-framer hover:bg-navy-700 active:scale-[0.98]"
+            className="mt-9 inline-flex h-[52px] items-center justify-center rounded-pill bg-navy px-9 font-sans text-[16px] font-medium text-white shadow-navy transition-all duration-300 ease-framer hover:bg-navy-700 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"
           >
             {faq.cta.label}
           </a>
@@ -35,6 +63,7 @@ export function FAQ() {
           initial="hidden"
           animate={list.animate}
           className="flex flex-col gap-3"
+          data-faq-list
         >
           {faq.items.map((item, i) => {
             const isOpen = i === open
@@ -48,8 +77,12 @@ export function FAQ() {
               >
                 <button
                   type="button"
+                  id={`faq-header-${i}`}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${i}`}
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  onKeyDown={(e) => handleKeyDown(e, i)}
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 rounded-xl transition-all"
                 >
                   <span className="font-display text-[20px] font-semibold text-ink">{item.q}</span>
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-navy">
@@ -61,6 +94,9 @@ export function FAQ() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={`faq-panel-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-header-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
