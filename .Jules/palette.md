@@ -1,0 +1,3 @@
+## 2025-07-16 - Reusable WAI-ARIA Keyboard-Accessible Accordion Pattern
+**Learning:** For highly interactive FAQ and content disclosure accordions, implementing standard WAI-ARIA roles (`region`, `aria-expanded`, `aria-controls`, `aria-labelledby`) combined with container-scoped DOM traversal for arrow key navigation (ArrowUp, ArrowDown, Home, End) delivers an exceptionally polished and screen-reader accessible experience.
+**Action:** Always apply `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2` alongside `onKeyDown` container-scoped helper focus hooks to ensure seamless keyboard navigation across all list-like interactive components.
