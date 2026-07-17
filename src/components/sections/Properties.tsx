@@ -49,6 +49,14 @@ export function Properties() {
     setIndex((i) => (i + d + total) % total)
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'ArrowLeft') {
+      go(-1)
+    } else if (e.key === 'ArrowRight') {
+      go(1)
+    }
+  }
+
   return (
     <section id="properties" className="bg-surface py-20 lg:py-24">
       <div className="container-px">
@@ -76,7 +84,14 @@ export function Properties() {
         />
 
         <div className="container-px">
-          <div className="relative mx-auto max-w-[1120px] overflow-hidden">
+          <div
+            tabIndex={0}
+            role="group"
+            aria-roledescription="carousel"
+            aria-label="Properties Carousel. Use left and right arrow keys to navigate properties."
+            onKeyDown={handleKeyDown}
+            className="relative mx-auto max-w-[1120px] overflow-hidden rounded-[28px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/50 focus-visible:ring-offset-2"
+          >
             <AnimatePresence mode="wait" custom={dir}>
               <motion.div
                 key={index}
@@ -115,7 +130,7 @@ export function Properties() {
 
                   <a
                     href="#contact"
-                    className="mt-6 inline-flex h-[54px] items-center justify-center rounded-pill bg-navy font-sans text-[16px] font-medium text-white shadow-navy transition-all duration-300 ease-framer hover:bg-navy-700 active:scale-[0.99]"
+                    className="mt-6 inline-flex h-[54px] items-center justify-center rounded-pill bg-navy font-sans text-[16px] font-medium text-white shadow-navy transition-all duration-300 ease-framer hover:bg-navy-700 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"
                   >
                     Property details
                   </a>
@@ -130,7 +145,7 @@ export function Properties() {
           type="button"
           aria-label="Previous property"
           onClick={() => go(-1)}
-          className="absolute left-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-navy shadow-navy transition-all duration-300 ease-framer hover:bg-navy-700 active:scale-95 lg:left-6 xl:left-[6%]"
+          className="absolute left-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-navy shadow-navy transition-all duration-300 ease-framer hover:bg-navy-700 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 lg:left-6 xl:left-[6%]"
         >
           <img src={svg('arrow-left.svg')} alt="" className="h-4 w-4 brightness-0 invert" />
         </button>
@@ -138,22 +153,24 @@ export function Properties() {
           type="button"
           aria-label="Next property"
           onClick={() => go(1)}
-          className="absolute right-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-navy shadow-navy transition-all duration-300 ease-framer hover:bg-navy-700 active:scale-95 lg:right-6 xl:right-[8%]"
+          className="absolute right-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-navy shadow-navy transition-all duration-300 ease-framer hover:bg-navy-700 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 lg:right-6 xl:right-[8%]"
         >
           <img src={svg('arrow-right.svg')} alt="" className="h-4 w-4 brightness-0 invert" />
         </button>
       </div>
 
       {/* Dots */}
-      <div className="mt-9 flex items-center justify-center gap-2">
+      <div role="tablist" aria-label="Properties carousel selection" className="mt-9 flex items-center justify-center gap-2">
         {properties.map((_, i) => (
           <button
             key={i}
+            role="tab"
+            aria-selected={i === index}
             type="button"
             aria-label={`Go to property ${i + 1}`}
             onClick={() => { setDir(i > index ? 1 : -1); setIndex(i) }}
             className={clsx(
-              'h-2 rounded-full transition-all duration-300 ease-framer',
+              'h-2 rounded-full transition-all duration-300 ease-framer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2',
               i === index ? 'w-7 bg-navy' : 'w-2 bg-black/15 hover:bg-black/25',
             )}
           />
