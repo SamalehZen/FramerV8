@@ -1,0 +1,3 @@
+## 2025-05-15 - Carousel Keyboard Navigation and High Contrast Focus States
+**Learning:** Carousel components and complex interactions like accordions on landing pages often look beautiful but lack clear screen reader/keyboard controls. Adding role="region", aria-roledescription, and onKeyDown handler for ArrowLeft/ArrowRight to the wrapper, along with custom focus-visible styling matching the specific theme colors, provides an elegant, invisible, yet highly accessible micro-UX.
+**Action:** Always provide full keyboard accessibility, aria state labels (such as aria-expanded for toggles), and customized variants for focus indicators in UI elements like Button components rather than relying on default browser focus states.

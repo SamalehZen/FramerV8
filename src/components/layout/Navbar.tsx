@@ -54,8 +54,10 @@ export function Navbar() {
               key={l.label}
               href={l.href}
               className={clsx(
-                'font-sans text-[15px] font-medium transition-colors duration-200',
-                light ? 'text-ink/80 hover:text-ink' : 'text-white/85 hover:text-white',
+                'font-sans text-[15px] font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-md px-1 py-0.5',
+                light
+                  ? 'text-ink/80 hover:text-ink focus-visible:ring-navy'
+                  : 'text-white/85 hover:text-white focus-visible:ring-white',
               )}
             >
               {l.label}
@@ -64,10 +66,10 @@ export function Navbar() {
           <a
             href={nav.cta.href}
             className={clsx(
-              'inline-flex h-11 items-center justify-center rounded-pill px-6 font-sans text-[15px] font-medium transition-all duration-300 ease-framer active:scale-[0.98]',
+              'inline-flex h-11 items-center justify-center rounded-pill px-6 font-sans text-[15px] font-medium transition-all duration-300 ease-framer active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
               light
-                ? 'bg-navy text-white shadow-navy hover:bg-navy-700'
-                : 'bg-white text-navy hover:bg-white/90',
+                ? 'bg-navy text-white shadow-navy hover:bg-navy-700 focus-visible:ring-navy'
+                : 'bg-white text-navy hover:bg-white/90 focus-visible:ring-white',
             )}
           >
             {nav.cta.label}
@@ -78,10 +80,11 @@ export function Navbar() {
         <button
           type="button"
           aria-label="Menu"
+          aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
           className={clsx(
-            'flex h-11 w-11 items-center justify-center rounded-full lg:hidden',
-            light ? 'text-ink' : 'text-white',
+            'flex h-11 w-11 items-center justify-center rounded-full lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+            light ? 'text-ink focus-visible:ring-navy' : 'text-white focus-visible:ring-white',
           )}
         >
           <div className="flex flex-col items-center justify-center gap-[5px]">
@@ -108,7 +111,7 @@ export function Navbar() {
                   key={l.label}
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-3 font-sans text-[16px] font-medium text-ink/85 transition-colors hover:bg-black/[0.04]"
+                  className="rounded-xl px-3 py-3 font-sans text-[16px] font-medium text-ink/85 transition-colors hover:bg-black/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy"
                 >
                   {l.label}
                 </a>
@@ -116,7 +119,7 @@ export function Navbar() {
               <a
                 href={nav.cta.href}
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex h-12 items-center justify-center rounded-pill bg-navy font-sans text-[15px] font-medium text-white shadow-navy"
+                className="mt-2 inline-flex h-12 items-center justify-center rounded-pill bg-navy font-sans text-[15px] font-medium text-white shadow-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"
               >
                 {nav.cta.label}
               </a>
