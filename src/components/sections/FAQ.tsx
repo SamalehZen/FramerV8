@@ -49,7 +49,7 @@ export function FAQ() {
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 rounded-xl px-2"
                 >
                   <span className="font-display text-[20px] font-semibold text-ink">{item.q}</span>
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-navy">
