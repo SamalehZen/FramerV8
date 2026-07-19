@@ -47,9 +47,32 @@ export function FAQ() {
                 )}
               >
                 <button
+                  id={`faq-trigger-${i}`}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${i}`}
                   type="button"
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  onKeyDown={(e) => {
+                    const items = document.querySelectorAll('[id^="faq-trigger-"]')
+                    if (e.key === 'ArrowDown') {
+                      e.preventDefault()
+                      const nextBtn = items[(i + 1) % items.length] as HTMLButtonElement | undefined
+                      nextBtn?.focus()
+                    } else if (e.key === 'ArrowUp') {
+                      e.preventDefault()
+                      const prevBtn = items[(i - 1 + items.length) % items.length] as HTMLButtonElement | undefined
+                      prevBtn?.focus()
+                    } else if (e.key === 'Home') {
+                      e.preventDefault()
+                      const firstBtn = items[0] as HTMLButtonElement | undefined
+                      firstBtn?.focus()
+                    } else if (e.key === 'End') {
+                      e.preventDefault()
+                      const lastBtn = items[items.length - 1] as HTMLButtonElement | undefined
+                      lastBtn?.focus()
+                    }
+                  }}
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left focus-visible:ring-2 focus-visible:ring-navy focus-visible:outline-none rounded-[16px] px-3 -mx-3 transition-all duration-300"
                 >
                   <span className="font-display text-[20px] font-semibold text-ink">{item.q}</span>
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-navy">
@@ -61,6 +84,9 @@ export function FAQ() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={`faq-panel-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-trigger-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
