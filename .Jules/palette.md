@@ -1,0 +1,3 @@
+## 2025-02-17 - Accordion Accessibility and Keyboard Navigation Pattern
+**Learning:** Custom interactive accordions, while visually slick when animated with Framer Motion, are completely opaque and unusable to keyboard-only users and screen readers unless explicitly marked up with standard WAI-ARIA roles (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) and clear, high-contrast visual focus indicators (`focus-visible`).
+**Action:** Always ensure all accordion headers utilize semantic HTML `<button>` elements styled with `focus-visible:ring-2` to support keyboard tab-navigation, and maintain synchronized ARIA state variables alongside state-driven animations.
