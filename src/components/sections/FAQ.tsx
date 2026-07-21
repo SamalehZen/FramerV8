@@ -48,8 +48,11 @@ export function FAQ() {
               >
                 <button
                   type="button"
+                  id={`faq-btn-${i}`}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${i}`}
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 py-5 px-3 -mx-3 rounded-[14px] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 transition-shadow"
                 >
                   <span className="font-display text-[20px] font-semibold text-ink">{item.q}</span>
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-navy">
@@ -61,13 +64,16 @@ export function FAQ() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={`faq-panel-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.35, ease }}
                       className="overflow-hidden"
                     >
-                      <p className="max-w-md pb-6 font-sans text-[16px] leading-[1.5] text-body">{item.a}</p>
+                      <p className="max-w-md pb-6 font-sans text-[16px] leading-[1.5] text-body px-3">{item.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
