@@ -1,0 +1,3 @@
+## 2025-07-21 - Accessible Accordions & Layout Shifts
+**Learning:** Interactive accordion elements require both semantic ARIA controls (such as `aria-expanded`, `aria-controls`, `role="region"`, and `aria-labelledby`) and visible high-contrast keyboard focus feedback (e.g. `focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2`). Adding negative margins and padding (`px-3 -mx-3`) prevents focus indicator rendering from causing layout shifts.
+**Action:** Always implement semantic ARIA attributes and design-system-aligned high-contrast focus rings with layout-shift-preventing negative margins for nested accordion controls.
