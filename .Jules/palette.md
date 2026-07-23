@@ -1,0 +1,3 @@
+## 2025-05-18 - [Accessible and Keyboard-Friendly Accordion Pattern]
+**Learning:** Adding semantic HTML/ARIA accessibility controls (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) makes accordions screen-reader friendly. Standard button elements need focus outline visibility. Using high-contrast focus rings (`focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2`) with negative margin adjustments (`px-3 -mx-3 rounded-xl`) avoids visual layout shifts during tab navigation while maintaining high accessibility standards.
+**Action:** Always apply explicit ARIA attributes, semantic roles, and focus styles on togglable UI components such as accordions, tabs, and modals.
