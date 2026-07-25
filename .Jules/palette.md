@@ -1,0 +1,3 @@
+## 2025-02-14 - Semantic ARIA and Focus Outline Controls for custom Accordion Components
+**Learning:** React/Framer Motion custom accordions are often implemented without keyboard accessibility, leaving screen readers and tab-navigating users unable to toggle or locate content correctly. Combining semantic ARIA attributes (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) with high-contrast `focus-visible` states ensures accessibility, while using negative margins/padding (`px-3 -mx-3`) avoids layout shifts.
+**Action:** Always verify custom interactive state-based UI controls (like accordions, tabs, collapsibles) have complete semantic HTML, linking IDs, explicit keyboard focus ring indicators, and responsive click fallbacks.
