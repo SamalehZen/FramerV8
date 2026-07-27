@@ -1,0 +1,5 @@
+# Palette's Journal
+
+## 2025-02-15 - Interactive Accessibility and Micro-UX Enhancement
+**Learning:** In highly modern Framer-like landing pages built with React, interactive components like FAQs/Accordions or slider/carousel controls are often designed only with mouse/pointer interactions in mind. They miss keyboard navigation/focus rings and rich ARIA roles (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) which makes them completely invisible to screen readers and keyboard-only users. Furthermore, interactive buttons without explicit hover/active states or clear keyboard focus styles reduce usability.
+**Action:** Always make sure accordions, slider/carousel controls, and navigation elements have appropriate semantic keyboard support (focus ring styles using `focus-visible`, button roles, keydown/keyup handling if needed, and proper ARIA states). Avoid layout shifts when adding focus outlines by using standard Tailwind classes like `focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2`.
