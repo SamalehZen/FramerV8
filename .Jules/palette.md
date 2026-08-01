@@ -1,0 +1,3 @@
+## 2025-08-01 - Accordion Accessibility & Keyboard Navigation Pattern
+**Learning:** Interactive accordion components require robust keyboard visual feedback and standard semantic ARIA roles (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) to be fully accessible. To prevent visual layout shifts (jank) when applying outline or ring focus visual rings on interactive flex headers, utilizing negative margins and matching padding (e.g., `px-3 -mx-3`) creates a seamless container adjustment.
+**Action:** When implementing or modifying accordions, ensure both ARIA attributes are fully mapped out and apply `focus-visible:ring-2` with compensating negative margins (`-mx-3 px-3`) or custom rounding to maintain pixel-perfect design continuity.
