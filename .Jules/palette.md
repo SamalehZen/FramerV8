@@ -1,0 +1,3 @@
+## 2026-08-02 - Keyboard Focus and ARIA for Accordions without Layout Shift
+**Learning:** Interactive accordion components built with Tailwind CSS and Framer Motion often omit keyboard outline focus states and semantic ARIA attributes. Applying `focus-visible:ring-2` to buttons within standard layout containers can cause minor layout shifts unless compensated with negative margins/padding (e.g., `px-3 -mx-3`) or precise box-shadow styling.
+**Action:** Always pair dynamic React-based toggle components (like accordions or tab lists) with semantic `aria-expanded` and `aria-controls` bindings, and ensure keyboard focus states are highly visible using negative margin spacing to preserve layout alignment.
