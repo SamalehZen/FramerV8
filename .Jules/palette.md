@@ -1,0 +1,3 @@
+## 2025-02-18 - Accordion and Carousel Keyboard & Screen Reader Accessibility
+**Learning:** Cloned templates with beautiful Framer/Framer Motion animations often lack fundamental accessibility hooks (such as `aria-*` attributes and keyboard focus rings). For highly interactive components like accordion triggers and custom carousels, combining semantic HTML roles and dynamic states ensures assistive technologies can properly read state transitions, while adding offset `focus-visible` styles prevents layout shifts during keyboard navigation.
+**Action:** For every custom interactive component added or modified, verify ARIA states (like `aria-expanded`, `aria-controls`, `role="region"`) and high-contrast, shift-free keyboard focus rings as standard requirements.

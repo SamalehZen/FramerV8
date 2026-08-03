@@ -78,9 +78,10 @@ export function Navbar() {
         <button
           type="button"
           aria-label="Menu"
+          aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
           className={clsx(
-            'flex h-11 w-11 items-center justify-center rounded-full lg:hidden',
+            'flex h-11 w-11 items-center justify-center rounded-full lg:hidden focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 focus-visible:outline-none',
             light ? 'text-ink' : 'text-white',
           )}
         >
