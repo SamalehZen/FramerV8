@@ -1,0 +1,3 @@
+## 2025-08-04 - Accessible Accordions and Visual Focus Rings
+**Learning:** Adding `focus-visible` ring offsets on elements inside small container widths can cause layout shifts or visual clipping. Adding horizontal padding and negative margins (`px-3 -mx-3`) on the `<button>` element provides breathing room for the high-contrast focus ring without shifting page content or clipping the focus indicator. Combined with standard ARIA attributes (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`), this ensures maximum accessibility and keyboard navigability.
+**Action:** Always apply `px-3 -mx-3` padding/margin offsets on interactive buttons inside padded container wrappers when adding visible focus rings, ensuring no visual shifting or clipping occurs.
