@@ -45,7 +45,7 @@ export function VideoSection() {
             type="button"
             onClick={toggle}
             aria-label={playing ? 'Pause video' : 'Play video'}
-            className="absolute bottom-6 left-6 flex h-16 w-16 items-center justify-center rounded-full bg-white/15 text-white ring-1 ring-inset ring-white/40 backdrop-blur-md transition-all duration-300 ease-framer hover:bg-white/25 active:scale-95"
+            className="absolute bottom-6 left-6 flex h-16 w-16 items-center justify-center rounded-full bg-white/15 text-white ring-1 ring-inset ring-white/40 backdrop-blur-md transition-all duration-300 ease-framer hover:bg-white/25 active:scale-95 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 outline-none"
           >
             {playing ? (
               <svg viewBox="0 0 24 24" className="h-6 w-6 fill-white">

@@ -1,0 +1,3 @@
+## 2024-08-05 - Visual Stability and Keyboard Focus in Custom Accordion Components
+**Learning:** Adding focus-visible rings (using Tailwind's `focus-visible:ring-2 focus-visible:ring-offset-2`) to block elements or customized interactive elements often causes annoying layout shift or cut-off rings due to overflow-hidden wrappers and tight padding. Traditional focus outlines might alter the width/height of components or trigger sibling repositioning.
+**Action:** Use a negative margin and matching padding trick (e.g. `px-3 -mx-3`) on the interactive trigger/header elements, combined with proper ARIA attributes (`aria-expanded`, `aria-controls`), to ensure focus outlines render perfectly without shifting any sibling content or causing container layout shifts.
