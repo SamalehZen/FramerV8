@@ -37,9 +37,12 @@ export function Services() {
                 <li key={item.n}>
                   <button
                     type="button"
+                    id={`service-btn-${i}`}
+                    aria-expanded={isActive}
+                    aria-controls={`service-content-${i}`}
                     onClick={() => setActive(i)}
                     className={clsx(
-                      'flex w-full items-center gap-4 border-b border-black/[0.07] text-left transition-all duration-300 ease-framer last:border-b-0',
+                      'flex w-full items-center gap-4 border-b border-black/[0.07] text-left transition-all duration-300 ease-framer last:border-b-0 rounded-xl -mx-3 px-3 focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 focus:outline-none',
                       isActive ? 'py-5' : 'py-[18px]',
                     )}
                   >
@@ -74,6 +77,9 @@ export function Services() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
+                id={`service-content-${active}`}
+                role="region"
+                aria-labelledby={`service-btn-${active}`}
                 initial={{ opacity: 0, scale: 1.04 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
