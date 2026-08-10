@@ -37,6 +37,7 @@ export function Button({
   const cls = clsx(
     'group inline-flex select-none items-center justify-center gap-2 rounded-pill font-sans font-medium',
     'transition-all duration-300 ease-framer will-change-transform',
+    'focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 focus:outline-none',
     sizes[size],
     variants[variant],
     className,
