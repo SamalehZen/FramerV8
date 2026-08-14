@@ -38,6 +38,7 @@ export function FAQ() {
         >
           {faq.items.map((item, i) => {
             const isOpen = i === open
+            const faqId = `faq-panel-${i}`
             return (
               <div
                 key={item.q}
@@ -49,7 +50,9 @@ export function FAQ() {
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  aria-expanded={isOpen}
+                  aria-controls={faqId}
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left rounded-[16px] focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 outline-none"
                 >
                   <span className="font-display text-[20px] font-semibold text-ink">{item.q}</span>
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-navy">
@@ -61,6 +64,9 @@ export function FAQ() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={faqId}
+                      role="region"
+                      aria-label={item.q}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
