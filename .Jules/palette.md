@@ -1,0 +1,3 @@
+## 2026-08-14 - Interactive Disclosure and Accordion Focus Indicators
+**Learning:** Accordion and drawer headers must pair exact interactive focus rings (`focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2`) with semantic, responsive attributes. Using ARIA labels `aria-expanded` and `aria-controls` linked to unique, corresponding IDs matches accessible disclosure and region standards, while custom styling without layout shifts provides pristine visual contrast.
+**Action:** Always map trigger buttons to unique panel container IDs, specify accurate state flags on the controls, and maintain visible offset-focus borders for clean tab navigation feedback.

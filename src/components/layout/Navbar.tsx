@@ -78,9 +78,11 @@ export function Navbar() {
         <button
           type="button"
           aria-label="Menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
           className={clsx(
-            'flex h-11 w-11 items-center justify-center rounded-full lg:hidden',
+            'flex h-11 w-11 items-center justify-center rounded-full lg:hidden focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 outline-none transition-shadow',
             light ? 'text-ink' : 'text-white',
           )}
         >
@@ -96,6 +98,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
