@@ -1,0 +1,3 @@
+## 2025-08-17 - FAQ Accordion Accessibility & Focus Indicators
+**Learning:** Collapsible accordion components in React/Tailwind applications often lack proper WAI-ARIA states (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) and visible keyboard focus rings. Applying a negative horizontal margin with matching horizontal padding (`px-3 -mx-3`) allows focus rings to render cleanly around rounded trigger containers without causing layout reflow or clipping neighboring elements.
+**Action:** Always include complete WAI-ARIA accordion attributes and `focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2` (with negative margin padding compensation where needed) when building collapsible FAQ or accordions.
