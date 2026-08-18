@@ -38,6 +38,8 @@ export function FAQ() {
         >
           {faq.items.map((item, i) => {
             const isOpen = i === open
+            const btnId = `faq-btn-${i}`
+            const panelId = `faq-panel-${i}`
             return (
               <div
                 key={item.q}
@@ -48,11 +50,14 @@ export function FAQ() {
               >
                 <button
                   type="button"
+                  id={btnId}
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 py-5 text-left rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2"
                 >
                   <span className="font-display text-[20px] font-semibold text-ink">{item.q}</span>
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-navy">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-navy" aria-hidden="true">
                     <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none stroke-white stroke-[2.4]" strokeLinecap="round">
                       {isOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M12 5v14M5 12h14" />}
                     </svg>
@@ -61,6 +66,9 @@ export function FAQ() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={btnId}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
