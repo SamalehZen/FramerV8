@@ -1,0 +1,3 @@
+## 2025-05-18 - Accordion ARIA Semantics and Keyboard Focus Alignment
+**Learning:** Interactive accordion components require explicit ARIA state linkage (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) so screen readers accurately communicate expansion state and associated content. Additionally, adding high-contrast `focus-visible` ring styles with slight negative horizontal margins/padding (`px-3 -mx-3`) provides clean visible focus feedback without layout shifts.
+**Action:** Always link accordion trigger buttons with corresponding collapsible panel regions via matching IDs and ARIA attributes, ensuring `focus-visible` styles remain unclipped inside containers.
