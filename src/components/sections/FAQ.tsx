@@ -38,18 +38,23 @@ export function FAQ() {
         >
           {faq.items.map((item, i) => {
             const isOpen = i === open
+            const buttonId = `faq-button-${i}`
+            const panelId = `faq-panel-${i}`
             return (
               <div
                 key={item.q}
                 className={clsx(
-                  'rounded-[20px] bg-black/[0.03] px-6 ring-1 ring-inset transition-all duration-300 ease-framer',
+                  'rounded-[20px] bg-black/[0.03] ring-1 ring-inset transition-all duration-300 ease-framer',
                   isOpen ? 'ring-black/[0.06]' : 'ring-transparent hover:bg-black/[0.045]',
                 )}
               >
                 <button
                   type="button"
+                  id={buttonId}
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 rounded-[20px] px-6 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset"
                 >
                   <span className="font-display text-[20px] font-semibold text-ink">{item.q}</span>
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-navy text-white shadow-navy">
@@ -61,11 +66,14 @@ export function FAQ() {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={buttonId}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.35, ease }}
-                      className="overflow-hidden"
+                      className="overflow-hidden px-6"
                     >
                       <p className="max-w-md pb-6 font-sans text-[16px] leading-[1.5] text-body">{item.a}</p>
                     </motion.div>
