@@ -1,0 +1,3 @@
+## 2025-05-18 - Accordion ARIA & Focus Ring Insets
+**Learning:** Accordion components need proper ARIA markup (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) for screen reader support. Additionally, using `focus-visible:ring-inset` on rounded accordion cards prevents focus outlines from being clipped or causing layout overflow inside padded containers.
+**Action:** Always pair `aria-expanded` and `aria-controls` on collapsible triggers with `role="region"` on the target panel, and apply `focus-visible:ring-inset` for clean keyboard focus states on card-based interactive elements.
