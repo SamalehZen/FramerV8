@@ -1,0 +1,3 @@
+## 2025-05-10 - Accordion Accessibility & Focus Inset
+**Learning:** Accordion components need full WAI-ARIA pattern implementations (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) alongside high-contrast focus rings (`focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset`). Using `focus-visible:ring-inset` avoids visual clipping and layout shifts on padded container elements.
+**Action:** Always ensure accordion items and toggle controls have matching `id` and `aria-*` relationships, and pair focus styling with `focus-visible:ring-inset` on rounded containers.
