@@ -77,10 +77,12 @@ export function Navbar() {
         {/* Mobile toggle */}
         <button
           type="button"
-          aria-label="Menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded={open}
+          aria-controls="mobile-navigation-menu"
           onClick={() => setOpen((v) => !v)}
           className={clsx(
-            'flex h-11 w-11 items-center justify-center rounded-full lg:hidden',
+            'flex h-11 w-11 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset lg:hidden',
             light ? 'text-ink' : 'text-white',
           )}
         >
@@ -96,6 +98,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-navigation-menu"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

@@ -1,0 +1,3 @@
+## 2025-05-18 - Accordion and Mobile Menu ARIA & Keyboard Navigation
+**Learning:** Interactive collapsible components like accordions and mobile navigation toggles often lack `aria-expanded`, `aria-controls`, and `role="region"`, which impairs accessibility for screen readers. In addition, container elements with padding can visually clip focus rings if `focus-visible:ring-inset` or tailored rounded focus rings are not specified.
+**Action:** Always link accordion/menu toggle buttons to their corresponding panel IDs using `aria-expanded` and `aria-controls`, set `role="region"` with `aria-labelledby` on expandable content panels, and apply `focus-visible:ring-2 focus-visible:ring-inset` for clear, non-clipping focus feedback.
