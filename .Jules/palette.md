@@ -1,0 +1,3 @@
+## 2026-09-12 - FAQ Accordion Accessibility & Focus Rings
+**Learning:** Accordion headers in custom collapsible UI components often lack native button accessibility semantics and keyboard focus indicators. Adding explicit `aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby` together with `focus-visible:ring-inset` provides clear screen reader states and visual focus feedback without layout shifts inside container cards.
+**Action:** When building or enhancing card-based expandable widgets, always pair WAI-ARIA accordion pattern attributes with inset focus rings to ensure clean, non-disruptive keyboard accessibility.
