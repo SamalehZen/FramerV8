@@ -1,0 +1,3 @@
+## 2026-09-13 - FAQ Accordion Accessibility & Focus Ring
+**Learning:** Accordion components using plain `<button>` tags without ARIA expand/control attributes and focus states exclude keyboard and screen reader users from effectively navigating FAQ content. Using `focus-visible:ring-inset` on rounded container buttons provides clean visual feedback without causing layout shifts or clipping rounded corners.
+**Action:** Always include `aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`, and `focus-visible:ring-inset` styling when implementing expandable/collapsible accordion UI components.
