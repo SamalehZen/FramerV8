@@ -1,0 +1,3 @@
+## 2025-05-18 - Accordion ARIA & Focus States
+**Learning:** Accordion components styled with full rounded containers (`rounded-[20px]`) can hide keyboard focus outlines or cause outer bounds overflow if default outline styles are used. Adding `focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset` provides clean visual feedback for keyboard users without clipping or layout shift.
+**Action:** When working with custom card or accordion triggers in Tailwind CSS, pair `focus-visible:ring-inset` with standard WAI-ARIA attributes (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`).
