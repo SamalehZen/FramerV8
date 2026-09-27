@@ -1,0 +1,3 @@
+## 2025-05-20 - Accordion ARIA & Focus States
+**Learning:** Accordion controls built with raw `button` elements lack state indication (`aria-expanded`) and section relationships (`aria-controls`/`role="region"`) for screen readers. Furthermore, adding `focus-visible:ring-inset` on full-width accordion buttons prevents visual ring clipping within parent padded containers.
+**Action:** Always bind `aria-expanded` and `aria-controls` to accordion triggers, attach `role="region"` and `aria-labelledby` to expandable content, and apply `focus-visible:ring-2 focus-visible:ring-inset` for keyboard focus clarity.
