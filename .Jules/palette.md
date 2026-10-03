@@ -1,0 +1,3 @@
+## 2026-10-03 - Inset Focus Rings for Padded Accordion Containers
+**Learning:** Adding focus rings on accordion triggers inside rounded, padded container elements can cause visual clipping or layout shifts if default focus ring offsets are used. Using `focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset` ensures clean, high-contrast focus indicators for screen readers and keyboard users without disturbing outer container bounds or padding.
+**Action:** Always apply `focus-visible:ring-inset` when styling full-width interactive triggers nested inside padded card or row containers.
