@@ -1,0 +1,3 @@
+## 2025-05-18 - Accordion Keyboard Focus and ARIA Attributes
+**Learning:** Accordion components using container cards with inner padding require `focus-within:ring-2 focus-within:ring-inset` on the container card rather than direct outline/ring on the button element to prevent visual focus clipping and layout shifts. Adding `aria-expanded`, `aria-controls`, `role="region"`, and `aria-labelledby` ensures proper screen reader disclosure patterns.
+**Action:** Always apply `focus-within:ring-inset` on rounded container components and link `aria-controls` / `aria-labelledby` across accordion trigger/panel IDs for accessible expandable sections.
