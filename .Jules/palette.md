@@ -1,0 +1,3 @@
+## 2025-05-20 - Accordion Accessibility and High-Contrast Focus Feedback
+**Learning:** Interactive accordion components require explicit `aria-expanded`, `aria-controls`, `role="region"`, and `aria-labelledby` linkages for screen readers to recognize state changes. Additionally, using `focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset` provides clean, high-contrast keyboard focus feedback on padded container elements without causing layout shifts or visual clipping.
+**Action:** Always pair dynamic expand/collapse state with `aria-expanded` and `aria-controls`, and apply inset focus-visible rings on interactive container headers.
