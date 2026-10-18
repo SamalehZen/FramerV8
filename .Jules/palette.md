@@ -1,0 +1,3 @@
+## 2025-05-18 - Accordion Keyboard Focus and ARIA Region Association
+**Learning:** Interactive accordion elements require proper ARIA attributes (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) and high-contrast visible focus indicators. Using `focus-visible:ring-inset` on padded container buttons prevents ring clipping and layout shifts when tabbing through items.
+**Action:** When creating or refining collapsible/accordion components, always attach unique IDs, set `aria-expanded` and `aria-controls`, and apply `focus-visible:ring-2 focus-visible:ring-inset` for clean, accessible keyboard navigation.
