@@ -18,8 +18,14 @@ import { Footer } from './components/sections/Footer'
 export default function App() {
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2.5 focus:font-sans focus:text-[14px] focus:font-medium focus:text-white focus:shadow-navy focus:outline-none focus:ring-2 focus:ring-white"
+      >
+        Skip to main content
+      </a>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <TrustBar />
         <About />
