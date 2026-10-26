@@ -1,0 +1,3 @@
+## 2025-05-18 - Accordion Keyboard Focus and Inset Focus Rings
+**Learning:** Adding visible keyboard focus rings (`focus-visible:ring-2`) to interactive buttons inside padded card containers can cause layout shifts or visual clipping if standard offset focus rings are used. Using `focus-visible:ring-inset` ensures the focus indicator fits neatly inside rounded container bounds without clipping or causing layout shifts.
+**Action:** When adding keyboard focus styles to full-width accordion buttons inside rounded containers, apply `focus-visible:ring-inset` alongside standard WAI-ARIA accordion controls (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`).
