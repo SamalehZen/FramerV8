@@ -1,0 +1,3 @@
+## 2025-05-18 - Accordion Semantics and Inset Focus Rings
+**Learning:** Accordion components using plain `<button>` elements without WAI-ARIA controls (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) leave screen reader users unaware of expand/collapse state. Additionally, outer focus rings on padded container items can produce visual clipping or layout shifts.
+**Action:** Always pair accordion triggers with `aria-expanded` and `aria-controls`, link panels with `role="region"` and `aria-labelledby`, and apply `focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset` for clean, high-contrast keyboard navigation.
