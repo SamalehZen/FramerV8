@@ -1,0 +1,3 @@
+## 2025-02-14 - Accessible Accordion Patterns and Inset Focus Indicators
+**Learning:** Accordion components need explicit ARIA relationship pairings (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) for screen reader discoverability. In rounded padded card containers, default focus rings get clipped by parent overflow or create layout jitter; applying `focus-visible:ring-inset` with matching border radius keeps the keyboard focus indicator clean and prominent without visual clipping.
+**Action:** Always pair `aria-expanded` and `aria-controls` with `role="region"` and `aria-labelledby` on collapsible disclosure panels, and use `focus-visible:ring-inset` on full-width container buttons.
