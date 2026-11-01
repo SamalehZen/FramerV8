@@ -1,0 +1,3 @@
+## 2026-11-01 - Accessible Accordions and Focus Visible Feedback
+**Learning:** Interactive accordion panels inside padded container cards clip default browser outline rings and lack semantic relationships when missing WAI-ARIA accordion attributes (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`). Using `focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset` provides clear, high-contrast keyboard focus feedback without clipping or layout shifts.
+**Action:** Always link accordion trigger buttons with their collapsible region panels using paired IDs and ARIA attributes, and apply `focus-visible:ring-inset` for clean keyboard navigation in padded card layouts.
