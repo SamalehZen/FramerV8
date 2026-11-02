@@ -1,0 +1,3 @@
+## 2025-05-18 - Accordion Keyboard Focus and WAI-ARIA Semantics
+**Learning:** Accordion buttons inside padded card containers require semantic ARIA linking (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) and visible high-contrast keyboard focus indicators. Using `focus-visible:ring-inset` on rounded button elements avoids visual clipping and layout shifts on padded container cards.
+**Action:** Always link accordion trigger buttons and panel containers with matching ARIA attributes and apply `focus-visible:ring-inset` with brand accent color rings (`focus-visible:ring-navy`) for clean keyboard focus navigation.
