@@ -1,0 +1,5 @@
+# Palette's Journal
+
+## 2025-05-18 - Accordion Semantics and Inset Focus Rings
+**Learning:** Collapsible accordion components require standard ARIA attributes (`aria-expanded`, `aria-controls`, `role="region"`, `aria-labelledby`) so screen readers announce expanded/collapsed state and associate triggers with their panels. Furthermore, on rounded card items with outer borders and padding, standard browser focus outlines either get clipped or introduce visual dissonance. Applying `focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset` with `rounded-[20px]` provides clear, high-contrast keyboard focus feedback that cleanly aligns with the container shape without causing layout shifts.
+**Action:** When building collapsible or disclosure components in card containers, always pair trigger `aria-expanded` and `aria-controls` with panel `role="region"` and `aria-labelledby`, and apply inset focus rings (`focus-visible:ring-inset`) matching the parent radius for keyboard navigation.
