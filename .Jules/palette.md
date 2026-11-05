@@ -1,0 +1,3 @@
+## 2026-11-05 - Accordion Component A11y and Keyboard Focus Inset Pattern
+**Learning:** Collapsible accordion elements require explicit ARIA linkage (`aria-expanded`, `aria-controls`, `role="region"`, and `aria-labelledby`) for screen reader discoverability. Additionally, applying `focus-visible:ring-inset` together with contextual rounding (`isOpen ? 'rounded-t-[20px]' : 'rounded-[20px]'`) prevents outline clipping and visual misalignment against outer rounded containers.
+**Action:** When designing or refactoring accordion or disclosure triggers enclosed in card containers, pair accessible ARIA attributes with inset focus indicators and adaptive corner radiuses.
